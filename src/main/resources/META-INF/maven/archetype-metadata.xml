@@ -15,6 +15,9 @@
 		<requiredProperty key="package">
 			<defaultValue>com.atSistemas</defaultValue>
 		</requiredProperty>
+		<requiredProperty key="type">
+			<defaultValue>NODELETE</defaultValue>
+		</requiredProperty>
 		<requiredProperty key="serviceName" />
 		<requiredProperty key="serviceNameFolder" />
 	</requiredProperties>

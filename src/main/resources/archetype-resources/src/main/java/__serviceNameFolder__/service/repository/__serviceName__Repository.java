@@ -1,14 +1,14 @@
 package ${package}.${serviceNameFolder.replace('/','.')}.service.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import ${package}.${serviceNameFolder.replace('/','.')}.service.domain.${serviceName};
 
 /**
- * ${serviceName}Repository  Service 
+ * ${serviceName}Repository Repositorio para el almacenamiento de {@link ${package}.${serviceNameFolder.replace('/','.')}.service.domain.${serviceName}} 
+ *
+ * @author Jose Antonio Navarro janavarro.fuentes@atsistemas.com
  *
  */
 @Repository

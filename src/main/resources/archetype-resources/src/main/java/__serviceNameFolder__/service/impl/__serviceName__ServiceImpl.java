@@ -1,22 +1,19 @@
 package ${package}.${serviceNameFolder.replace('/','.')}.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ticketapp.services.api.objects.TicketDetails;
-import com.ticketapp.services.domain.Account;
-import com.ticketapp.services.domain.Ticket;
-import com.ticketapp.services.repository.AccountRepository;
-import com.ticketapp.services.repository.TicketRepository;
-
+import ${package}.${serviceNameFolder.replace('/','.')}.service.domain.${serviceName};
+import ${package}.${serviceNameFolder.replace('/','.')}.service.repository.${serviceName}Repository;
 import ${package}.${serviceNameFolder.replace('/','.')}.service.${serviceName}Service;
 
 /**
- * Implementacion interna de  {@link ${serviceName}Service}. Esta clase no se debe acceder directamente
+ * Implementacion interna de {@link ${package}.${serviceNameFolder.replace('/','.')}.service.${serviceName}Service}. Esta clase no se debe acceder directamente
+ *
+ * @author Jose Antonio Navarro janavarro.fuentes@atsistemas.com
  */
 @Service
 public class ${serviceName}ServiceImpl implements ${serviceName}Service 
@@ -41,19 +38,23 @@ public class ${serviceName}ServiceImpl implements ${serviceName}Service
 	}
 
 	@Override
-	public ${serviceName} update(Integer id, ${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}) {
-		${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)} = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Repository.update(id, ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)});
+	public ${serviceName} update(${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}) {
+		${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)} = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Repository.save(${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)});
 
 		return ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)};
 
 	}
-	
+
 	@Override
 	public ${serviceName} delete(Integer id) {
-		${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Repository.delete(id);
+		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)} = getById(id);
+
+		List<${serviceName} > ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}List = new ArrayList<>();
+
+		${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}List.add(${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)});
+		${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Repository.deleteInBatch(${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}List);
 
 		return ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)};
-
 	}
 	@Override
 	public ${serviceName} getById(Integer id) {
