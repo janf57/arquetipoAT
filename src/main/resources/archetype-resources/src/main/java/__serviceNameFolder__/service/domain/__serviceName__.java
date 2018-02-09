@@ -1,6 +1,7 @@
 package ${package}.${serviceNameFolder.replace('/','.')}.service.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import ${package}.${serviceNameFolder.replace('/','.')}.rest.dto.${serviceName}DTO;
 
@@ -12,6 +13,7 @@ import ${package}.${serviceNameFolder.replace('/','.')}.rest.dto.${serviceName}D
 @Entity
 public class ${serviceName} 
 {
+	@Id
 	private int id;
 	private String descripcion;
 

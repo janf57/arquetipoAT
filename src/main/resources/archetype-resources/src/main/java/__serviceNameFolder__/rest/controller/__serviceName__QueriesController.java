@@ -1,5 +1,6 @@
 package ${package}.${serviceNameFolder.replace('/','.')}.rest.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -22,7 +23,7 @@ import ${package}.${serviceNameFolder.replace('/','.')}.service.${serviceName}Se
 import ${package}.${serviceNameFolder.replace('/','.')}.rest.dto.${serviceName}DTO;
 
 @RestController
-@RequestMapping(value = "${serviceNameFolder}")
+@RequestMapping(value = "/${serviceNameFolder}")
 @Api(value = "${serviceName}QueriesController", produces = "application/json")
 /**
  * Controlador de queries 

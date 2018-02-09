@@ -21,7 +21,7 @@ public class Swagger2Config {
                 .groupName("${serviceName}")
                 .apiInfo(apiInfo())
                 .select()
-                .paths(regex("${serviceNameFolder}"))
+                .paths(regex("/${serviceNameFolder}.*"))
                 .build();
     }
 

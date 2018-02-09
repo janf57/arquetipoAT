@@ -25,7 +25,7 @@ import ${package}.${serviceNameFolder.replace('/','.')}.service.${serviceName}Se
 import ${package}.${serviceNameFolder.replace('/','.')}.rest.dto.${serviceName}DTO;
 
 @RestController
-@RequestMapping(value = "${serviceNameFolder}")
+@RequestMapping(value = "/${serviceNameFolder}")
 @Api(value = "${serviceName}CommandsController", produces = "application/json")
 /**
  * Controlador de commands 
