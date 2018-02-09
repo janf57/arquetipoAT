@@ -1,5 +1,6 @@
 package ${package}.${serviceNameFolder.replace('/','.')}.rest.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -12,19 +13,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import ${package}.${serviceNameFolder.replace('/','.')}.service.domain.${serviceName};
 import ${package}.${serviceNameFolder.replace('/','.')}.service.${serviceName}Service;
 import ${package}.${serviceNameFolder.replace('/','.')}.rest.dto.${serviceName}DTO;
 
-@Controller
+@RestController
 @RequestMapping(value = "${serviceNameFolder}")
+@Api(value = "${serviceName}CommandsController", produces = "application/json")
 /**
  * Controlador de commands 
  *

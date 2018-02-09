@@ -16,8 +16,7 @@
 		<start-class>${groupId}.${serviceNameFolder.replace('/','.')}.${serviceName}Application</start-class>
 		<java.version>1.8</java.version>
 
-		<springfox.swagger2.version>2.5.0</springfox.swagger2.version>
-		<swagger.version>1.5.8</swagger.version>
+		<swagger.version>2.5.0</swagger.version>
 		<junit.version>3.8.1</junit.version>
 	</properties>
 	<dependencies>
@@ -48,21 +47,21 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- Swagger for API documentation. -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>${springfox.swagger2.version}</version>
+			<version>${swagger.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.hateoas</groupId>
+					<artifactId>spring-hateoas</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>${springfox.swagger2.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-bean-validators</artifactId>
-			<version>${springfox.swagger2.version}</version>
+			<version>${swagger.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
