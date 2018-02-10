@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
@@ -44,13 +45,11 @@ public class  ${serviceName}CommandsController {
      * @param builder UriComponentsBuilder
      * @return ${serviceName}DTO
      */
-	@ApiImplicitParams({ //
-		@ApiImplicitParam(name = "${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}", paramType = "header", dataType = "${serviceName}DTO") })
 	@ApiOperation(value = "Crea un ${serviceName}", tags = { "Controlador ${serviceName}s" })
 	@ApiResponses(value = { //
 			@ApiResponse(code = 200, message = "${serviceName} creado", response = ${serviceName}DTO.class), @ApiResponse(code = 404, message = "No creado") })
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<${serviceName}DTO> create(@RequestBody @Valid ${serviceName}DTO ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}, UriComponentsBuilder builder) {
+	public ResponseEntity<${serviceName}DTO> create(@ApiParam(value = "${serviceName} que se va a crear", required = true) @RequestBody @Valid ${serviceName}DTO ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}, UriComponentsBuilder builder) {
 
 		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Created = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service.save(${serviceName}.from${serviceName}DTO(${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}));
 
@@ -69,13 +68,11 @@ public class  ${serviceName}CommandsController {
      * @param builder UriComponentsBuilder
      * @return ${serviceName}DTO
      */
-	@ApiImplicitParams({ //
-		@ApiImplicitParam(name = "${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}", paramType = "header", dataType = "${serviceName}DTO") })
 	@ApiOperation(value = "Actualiza un ${serviceName}", tags = { "Controlador ${serviceName}s" })
 	@ApiResponses(value = { //
 			@ApiResponse(code = 200, message = "${serviceName} actualiza", response = ${serviceName}DTO.class), @ApiResponse(code = 404, message = "No actualizado") })
 	@RequestMapping(method = RequestMethod.PUT)
-	public ResponseEntity<${serviceName}DTO> update(@RequestBody @Valid ${serviceName}DTO ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}, UriComponentsBuilder builder) {
+	public ResponseEntity<${serviceName}DTO> update(@ApiParam(value = "${serviceName} que se va a actualizar", required = true) @RequestBody @Valid ${serviceName}DTO ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}, UriComponentsBuilder builder) {
 
 		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Created = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service.save(${serviceName}.from${serviceName}DTO(${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}));
 
@@ -93,15 +90,13 @@ public class  ${serviceName}CommandsController {
      * @param id Integer
      * @return ${serviceName}DTO
      */
-	@ApiImplicitParams({ //
-		@ApiImplicitParam(name = "id", paramType = "header", dataType = "int") })
 	@ApiOperation(value = "Elimina un ${serviceName}", tags = { "Controlador ${serviceName}s" })
 	@ApiResponses(value = { //
 			@ApiResponse(code = 200, message = "${serviceName} eliminado", response = ${serviceName}DTO.class), @ApiResponse(code = 404, message = "No eliminado") })
 	@RequestMapping(method = RequestMethod.DELETE, value = "{id}")
-	public ResponseEntity<${serviceName}DTO> delete(@PathVariable Integer id) {
+	public ResponseEntity<${serviceName}DTO> delete(@ApiParam(value = "Id del ${serviceName} que se va a crear", required = true) @PathVariable String id) {
 
-		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Deleted = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service.delete(id);
+		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Deleted = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service.delete(new Integer(id));
 
 		HttpHeaders headers = new HttpHeaders();
 		

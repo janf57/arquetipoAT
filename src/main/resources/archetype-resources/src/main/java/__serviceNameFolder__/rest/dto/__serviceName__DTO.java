@@ -1,10 +1,13 @@
 package ${package}.${serviceNameFolder.replace('/','.')}.rest.dto;
 
+import io.swagger.annotations.ApiModel;
+
 /**
  * Data Transfer Object para el {@link ${package}.${serviceNameFolder.replace('/','.')}.service.domain.${serviceName}} del modelo de dominio
  *
  * @author Jose Antonio Navarro janavarro.fuentes@atsistemas.com
  */
+@ApiModel(value = "Información de un ${serviceName}", description = "Datos del ${serviceName}")
 public class ${serviceName}DTO 
 {
 	private int id;

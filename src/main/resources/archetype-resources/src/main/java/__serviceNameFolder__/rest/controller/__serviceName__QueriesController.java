@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
@@ -59,15 +60,13 @@ public class ${serviceName}QueriesController {
 	 * @param id int id del ${serviceName}
 	 * @return el ${serviceName}
 	 */
-	@ApiImplicitParams({ //
-		@ApiImplicitParam(name = "id", paramType = "header", dataType = "int") })
 	@ApiOperation(value = "Recupera ${serviceName}s", tags = { "Controlador ${serviceName}s" })
 	@ApiResponses(value = { //
 			@ApiResponse(code = 200, message = "${serviceName} recuperado", response = ${serviceName}DTO.class), @ApiResponse(code = 404, message = "No encontrado") })
 	@RequestMapping(method = RequestMethod.GET, value = "{id}")
 	@ResponseBody
-	public ${serviceName}DTO getById(@PathVariable Integer id) {
-		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)} = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service.getById(id);
+	public ${serviceName}DTO getById(@ApiParam(value = "Id del ${serviceName} que se pide", required = true) @PathVariable String id) {
+		${serviceName} ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)} = ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}Service.getById(new Integer(id));
 		return ${serviceName.substring(0,1).toLowerCase()}${serviceName.substring(1)}.to${serviceName}DTO();
 	}
 }
